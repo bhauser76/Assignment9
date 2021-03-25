@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Assignment9.Models.Movie>
+
+@{
+    ViewData["Title"] = "List of Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--This page is for the list of movies in the database-->
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.edited)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edited)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.movieID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.movieID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.movieID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

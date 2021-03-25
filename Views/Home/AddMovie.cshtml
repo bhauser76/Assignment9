@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.title = "Add Movie";
+}
+
+@model Assignment9.Models.Movie
+<!--Form that user puts in new movie-->
+<form asp-action="AddMovie" method="post">
+    <label asp-for="category" for="category">Category: </label>
+    <input asp-for="category" id="category" />
+    <br />
+
+    <label asp-for="title" for="title">Title: </label>
+    <input asp-for="title" id="title" />
+    <br />
+
+    <label asp-for="year" for="year">Year: </label>
+    <input asp-for="year" id="year" />
+    <br />
+
+    <label asp-for="director" for="director">Director: </label>
+    <input asp-for="director" id="director" />
+    <br />
+
+    <label asp-for="rating" for="rating">Rating: </label>
+    <select asp-for="rating" id="rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br />
+
+    <label asp-for="edited" for="edited">Edited: </label>
+    <label for="yes">Yes</label>
+    <input asp-for="edited" type="radio" id="yes" name="edited" value="Yes" />
+    <label for="no">No</label>
+    <input asp-for="edited" type="radio" id="no" name="edited" value="No" />
+    <br />
+
+    <label asp-for="lent" for="lent">Lent to: </label>
+    <input asp-for="lent" id="lent" />
+    <br />
+
+    <label asp-for="notes" for="notes">Notes: </label>
+    <input asp-for="notes" id="notes" />
+    <br />
+
+    <button type="submit">Submit</button>
+    <!--form validator: if something is wrong, it will not submit the movie to the list
+        and will let the user know what is wrong.-->
+    <div asp-validation-summary="All"></div>
+</form>

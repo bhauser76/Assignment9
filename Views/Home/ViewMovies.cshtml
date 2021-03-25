@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.title = "My Movies";
+}
+
+@model IEnumerable<Assignment9.Models.Movie>
+
+
+<div>
+    <table class="table table-sm">
+        <thread>
+            <tr>
+                <th scope="col">MovieID</th>
+                <th scope="col">Category</th>
+                <th scope="col">Title</th>
+                <th scope="col">Year</th>
+                <th scope="col">Director</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Edited</th>
+                <th scope="col">Lent To</th>
+                <th scope="col">Notes</th>
+            </tr>
+        </thread>
+
+        <tbody>
+            @foreach (Assignment9.Models.Movie x in Model)
+            {
+              
+                
+                
+            <tr>
+                <th scope="row">@x.movieID</th>
+                <td>@x.category</td>
+                <td>@x.title</td>
+                <td>@x.year</td>
+                <td>@x.director</td>
+                <td>@x.rating</td>
+                <td>@x.edited</td>
+                <td>@x.lent</td>
+                <td>@x.notes</td>
+
+            </tr>
+                
+
+            }
+        </tbody>
+    </table>
+</div>

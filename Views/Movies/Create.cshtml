@@ -1,0 +1,76 @@
+﻿@model Assignment9.Models.Movie
+
+@{
+    ViewData["Title"] = "Create New Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--This page is where they fill out a form to create a new movie to add to the database-->
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="category" class="control-label"></label>
+                <input asp-for="category" class="form-control" />
+                <span asp-validation-for="category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="year" class="control-label"></label>
+                <input asp-for="year" class="form-control" />
+                <span asp-validation-for="year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="director" class="control-label"></label>
+                <input asp-for="director" class="form-control" />
+                <span asp-validation-for="director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rating" for="rating" class="control-label">Select Rating</label>
+                <select asp-for="rating" id="rating">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                </select>
+                <span asp-validation-for="rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Edited?</label><br />
+                <label asp-for="edited" for="yes" class="control-label">Yes</label>
+                <input asp-for="edited" type="radio" id="yes" value="Yes" name="edited" class="form-control" />
+                <label asp-for="edited" for="no" class="control-label">No</label>
+                <input asp-for="edited" type="radio" id="no" value="No" name="edited" class="form-control" />
+                <span asp-validation-for="edited" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lent" class="control-label"></label>
+                <input asp-for="lent" class="form-control" />
+                <span asp-validation-for="lent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="notes" class="control-label"></label>
+                <input asp-for="notes" class="form-control" />
+                <span asp-validation-for="notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
